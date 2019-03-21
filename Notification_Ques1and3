@@ -1,0 +1,46 @@
+
+
+Q1- Explain all notification channel priorities.
+Ans- 1)From Android Oreo now user can can control the importance or priority of a notifications.So now it is in hand of User to decide      what type of app notification they want to see & which they dont. From the developer perspective now you have to create notification channels for your app notifications, user can individually on & off particular channel as their need. 
+
+Different types of priorities for notification channels:-
+
+    1>IMPORTANCE_MAX: It makes a sound and appears as a heads-up notification,always peeks,full screen interruption.
+    2>IMPORTANCE_HIGH: It shows everywhere,prevent fullscreen interruption. makes noise and peeks
+    3>IMPORTANCE_DEFAULT: It shows everywhere, makes noise, but does not visually intrude,never peak
+    4>IMPORTANCE_LOW: It doesn't make sound or vibrate, Prevent full-screen interruption, but is not intrusive,do not peak
+    5>IMPORTANCE_MIN: It only shows in the shade, below the fold,never peak,never make sound & vibrate,Hide from lock screen and status bar,
+    Show at the bottom of the notification list
+    6>IMPORTANCE_NONE: A notification with no importance, does not show in the shade
+
+Q3- Explain any 5 methods of JobInfo.Builder.
+Ans- 
+
+JobInfo jobInfoObj = new JobInfo.Builder(1, componentName)
+.setPeriodic(50000).build();
+.setBackoffCriteria(6000, JobInfo.BACKOFF_POLICY_LINEAR)
+.setMinimumLatency(500).setOverrideDeadline(300)
+.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+.setRequiresBatteryNotLow(true).build();
+
+
+1)setPeriodic()-To create a job that runs every time after elapsing of a specified time,
+
+2)setBackoffCriteria()-To create a job that needs to be rerun if it fails,you have to pass time interval for the first time retry and retry policy which is used to calculate time interval for retries after first retry.
+
+3)setMinimumLatency()-You can make a job delayed by specified amount of time by setting minimum latency and you can also specify maximum delay by calling setOverrideDeadline.
+
+4)setRequiredNetworkType()-If your job needs network connection and you want to run the job when network of specified kind is used.
+
+5)setRequiredBatteryNotLow()-you can ask the scheduler to not run the job when battery is low by calling it.
+
+ 
+   
+
+
+
+  
+
+
+
+
